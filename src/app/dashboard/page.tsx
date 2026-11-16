@@ -40,7 +40,7 @@ export default function VolunteerDashboard() {
   return (
     <DashboardShell role="volunteer">
       <div className="page-heading">
-        <h1>مرحباً بك في Volunteer Hub</h1>
+        <h1>مرحباً بك في شباب الهمة في جيرود</h1>
         <p>تابع بياناتك ومهامك التطوعية من مكان واحد.</p>
       </div>
 

@@ -387,15 +387,15 @@ export default function AdminResourcesPage() {
                 <tbody>
                   {filteredResources.map((resource) => (
                     <tr key={resource.id}>
-                      <td>
+                      <td data-label="الإمكانية">
                         <strong>{resource.title}</strong>
                       </td>
 
-                      <td>
+                      <td data-label="النوع">
                         {getResourceTypeLabel(resource.resource_type)}
                       </td>
 
-                      <td>
+                      <td data-label="المتطوع">
                         <div>
                           <strong>
                             {resource.volunteer?.full_name || "متطوع غير معروف"}
@@ -411,13 +411,13 @@ export default function AdminResourcesPage() {
                         </div>
                       </td>
 
-                      <td>{resource.quantity ?? "—"}</td>
+                      <td data-label="الكمية">{resource.quantity ?? "—"}</td>
 
-                      <td style={{ minWidth: 160 }}>
+                      <td data-label="الوصف">
                         {resource.description || "لا يوجد وصف"}
                       </td>
 
-                      <td>
+                      <td data-label="حالة التوفر">
                         {resource.is_available ? (
                           <span
                             className="status-pill"
@@ -447,7 +447,7 @@ export default function AdminResourcesPage() {
                         )}
                       </td>
 
-                      <td>
+                      <td data-label="الإجراءات">
                         <div
                           style={{
                             display: "flex",

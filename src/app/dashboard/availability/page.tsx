@@ -139,14 +139,16 @@ export default function AvailabilityPage() {
           <tbody>
             {items.map((item) => (
               <tr key={item.id}>
-                <td>{days[item.day_of_week ?? 0]}</td>
-                <td>{item.availability_type === "full_day" ? "اليوم كامل" : "جزئي"}</td>
-                <td>
+                <td data-label="اليوم">{days[item.day_of_week ?? 0]}</td>
+                <td data-label="التفرغ">
+                  {item.availability_type === "full_day" ? "اليوم كامل" : "جزئي"}
+                </td>
+                <td data-label="الفترة">
                   {item.start_time
                     ? `${item.start_time.slice(0, 5)} - ${item.end_time?.slice(0, 5)}`
                     : "طوال اليوم"}
                 </td>
-                <td>
+                <td data-label="إجراء">
                   <button className="form-button" onClick={() => removeItem(item.id)}>
                     حذف
                   </button>

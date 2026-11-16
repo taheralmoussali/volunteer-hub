@@ -109,7 +109,7 @@ export default function DashboardShell({
       <aside className="sidebar">
         <div className="sidebar-brand">
           <HeartHandshake size={30} />
-          <span>Volunteer Hub</span>
+          <span>شباب الهمة في جيرود</span>
         </div>
 
         <div className="sidebar-user">
@@ -140,16 +140,18 @@ export default function DashboardShell({
           })}
         </nav>
 
-        <button className="logout-button" onClick={logout}>
-          <LogOut size={19} />
-          تسجيل الخروج
-        </button>
       </aside>
 
       <main className="main-content">
         <header className="topbar">
           <span>{role === "admin" ? "لوحة الإدارة" : "مساحة المتطوع"}</span>
-          <span className="topbar-user">{name}</span>
+          <div className="topbar-actions">
+            <span className="topbar-user">{name}</span>
+            <button className="topbar-logout" onClick={logout}>
+              <LogOut size={18} />
+              تسجيل الخروج
+            </button>
+          </div>
         </header>
         <div className="page-content">{children}</div>
       </main>

@@ -148,19 +148,23 @@ export default function AdminTasksPage() {
 
       <div className="content-card">
         <h2>المهام الحالية</h2>
-        <table className="data-table">
-          <thead><tr><th>المهمة</th><th>الحالة</th><th>التاريخ</th></tr></thead>
-          <tbody>
-            {tasks.map((t) => (
-              <tr key={t.id}>
-                <td>{t.title}</td>
-                <td><span className="status-pill">{t.status}</span></td>
-                <td>{t.starts_at ? new Date(t.starts_at).toLocaleString("ar") : "غير محدد"}</td>
-              </tr>
-            ))}
-            {tasks.length === 0 && <tr><td colSpan={3}>لا توجد مهام حتى الآن.</td></tr>}
-          </tbody>
-        </table>
+        <div className="table-responsive">
+          <table className="data-table">
+            <thead><tr><th>المهمة</th><th>الحالة</th><th>التاريخ</th></tr></thead>
+            <tbody>
+              {tasks.map((t) => (
+                <tr key={t.id}>
+                  <td data-label="المهمة">{t.title}</td>
+                  <td data-label="الحالة"><span className="status-pill">{t.status}</span></td>
+                  <td data-label="التاريخ">
+                    {t.starts_at ? new Date(t.starts_at).toLocaleString("ar") : "غير محدد"}
+                  </td>
+                </tr>
+              ))}
+              {tasks.length === 0 && <tr><td colSpan={3}>لا توجد مهام حتى الآن.</td></tr>}
+            </tbody>
+          </table>
+        </div>
       </div>
     </DashboardShell>
   );

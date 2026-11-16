@@ -149,10 +149,10 @@ export default function AdminAvailabilityPage() {
               <tbody>
                 {volunteers.map((volunteer) => (
                   <tr key={volunteer.id}>
-                    <td>{volunteer.full_name}</td>
-                    <td>{volunteer.email}</td>
-                    <td>{volunteer.phone || "—"}</td>
-                    <td>
+                    <td data-label="اسم المتطوع">{volunteer.full_name}</td>
+                    <td data-label="البريد الإلكتروني">{volunteer.email}</td>
+                    <td data-label="رقم الهاتف">{volunteer.phone || "—"}</td>
+                    <td data-label="أوقات التفرغ">
                       <div className="availability-list">
                         {volunteer.availability.map((item, index) => (
                           <div key={index}>

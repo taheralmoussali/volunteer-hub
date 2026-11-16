@@ -108,21 +108,31 @@ export default function ResourcesPage() {
 
       <div className="content-card">
         <h2>مواردي المسجلة</h2>
-        <table className="data-table">
-          <thead><tr><th>الاسم</th><th>النوع</th><th>الكمية</th><th>الوصف</th><th>الإجراء</th></tr></thead>
-          <tbody>
-            {items.map((item) => (
-              <tr key={item.id}>
-                <td>{item.title}</td>
-                <td>{item.resource_type}</td>
-                <td>{item.quantity}</td>
-                <td>{item.description || "—"}</td>
-                <td><button className="form-button" onClick={() => removeResource(item.id)}>حذف</button></td>
+        <div className="table-responsive">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>الاسم</th><th>النوع</th><th>الكمية</th><th>الوصف</th><th>الإجراء</th>
               </tr>
-            ))}
-            {items.length === 0 && <tr><td colSpan={5}>لا توجد موارد مسجلة.</td></tr>}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {items.map((item) => (
+                <tr key={item.id}>
+                  <td data-label="الاسم">{item.title}</td>
+                  <td data-label="النوع">{item.resource_type}</td>
+                  <td data-label="الكمية">{item.quantity}</td>
+                  <td data-label="الوصف">{item.description || "—"}</td>
+                  <td data-label="الإجراء">
+                    <button className="form-button" onClick={() => removeResource(item.id)}>
+                      حذف
+                    </button>
+                  </td>
+                </tr>
+              ))}
+              {items.length === 0 && <tr><td colSpan={5}>لا توجد موارد مسجلة.</td></tr>}
+            </tbody>
+          </table>
+        </div>
       </div>
     </DashboardShell>
   );

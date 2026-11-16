@@ -70,7 +70,7 @@ export default function LoginPage() {
           <HeartHandshake size={34} />
         </div>
 
-        <h1>Volunteer Hub</h1>
+        <h1>شباب الهمة في جيرود</h1>
         <p className="auth-subtitle">
           منصة إدارة المتطوعين والمهام
         </p>

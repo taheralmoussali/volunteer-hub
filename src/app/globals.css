@@ -308,22 +308,31 @@ a {
   color: white;
 }
 
-.logout-button {
+.topbar-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: auto;
-  padding: 13px;
-  border: 0;
-  border-radius: 9px;
-  background: #ffffff12;
-  color: white;
-  text-align: right;
-  transition: background 0.2s;
+  gap: 14px;
+  min-width: 0;
 }
 
-.logout-button:hover {
-  background: #ffffff22;
+.topbar-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+  color: var(--danger);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.topbar-logout:hover {
+  background: var(--danger-bg);
 }
 
 .main-content {
@@ -446,8 +455,15 @@ a {
 
 .table-responsive {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   border-radius: 10px;
+}
+
+.content-card,
+.form-card,
+.table-card {
+  min-width: 0;
 }
 
 .data-table {
@@ -490,6 +506,10 @@ a {
   gap: 16px;
 }
 
+.form-grid > * {
+  min-width: 0;
+}
+
 .form-field {
   display: flex;
   flex-direction: column;
@@ -509,6 +529,8 @@ a {
 .form-field textarea,
 .form-input {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   min-height: 44px;
   padding: 10px 12px;
   border: 1px solid #dce2eb;
@@ -724,13 +746,22 @@ a {
     padding: 10px;
   }
 
-  .logout-button {
-    margin-top: 10px;
-  }
-
   .topbar {
     min-height: 60px;
-    padding: 10px 16px;
+    padding: 10px 12px;
+  }
+
+  .topbar-actions {
+    gap: 8px;
+  }
+
+  .topbar-user {
+    display: none;
+  }
+
+  .topbar-logout {
+    min-height: 38px;
+    padding: 7px 9px;
   }
 
   .page-content,
@@ -749,8 +780,62 @@ a {
     padding: 16px;
   }
 
+  .table-responsive {
+    overflow: visible;
+  }
+
   .data-table {
-    min-width: 620px;
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .data-table thead {
+    display: none;
+  }
+
+  .data-table tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  .data-table tr {
+    display: block;
+    min-width: 0;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: white;
+  }
+
+  .data-table tbody tr:hover {
+    background: white;
+  }
+
+  .data-table td {
+    display: grid;
+    grid-template-columns: minmax(86px, 38%) minmax(0, 1fr);
+    align-items: start;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf0f5;
+    overflow-wrap: anywhere;
+  }
+
+  .data-table td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-weight: 700;
+  }
+
+  .data-table td:not([data-label])::before {
+    content: none;
+  }
+
+  .availability-list div {
+    white-space: normal;
   }
 
   .auth-card {

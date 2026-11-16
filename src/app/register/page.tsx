@@ -64,7 +64,7 @@ export default function RegisterPage() {
           <HeartHandshake size={34} />
         </div>
 
-        <h1>Volunteer Hub</h1>
+        <h1>شباب الهمة في جيرود</h1>
         <p className="auth-subtitle">انضم إلى فريق المتطوعين</p>
 
         <h2>إنشاء حساب</h2>

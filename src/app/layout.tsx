@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Volunteer Hub",
+  title: "شباب الهمة في جيرود",
   description: "نظام إدارة المتطوعين والمهام",
 };
 
