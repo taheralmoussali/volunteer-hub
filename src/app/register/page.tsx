@@ -27,6 +27,11 @@ export default function RegisterPage() {
       return;
     }
 
+    if (!phone.trim()) {
+      setError("رقم الهاتف مطلوب.");
+      return;
+    }
+
     setLoading(true);
 
     const { error: signupError } = await supabase.auth.signUp({
@@ -35,7 +40,7 @@ export default function RegisterPage() {
       options: {
         data: {
           full_name: fullName,
-          phone: phone,
+          phone: phone.trim(),
         },
       },
     });
@@ -100,6 +105,7 @@ export default function RegisterPage() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="رقم الهاتف"
+              required
             />
           </div>
 

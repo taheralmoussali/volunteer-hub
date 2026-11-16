@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   HeartHandshake, LayoutDashboard, Users, CalendarDays,
-  Award, Package, ClipboardList, LogOut, Loader2
+  Award, Package, ClipboardList, LogOut, Loader2, UserRound
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 
@@ -61,9 +61,11 @@ export default function DashboardShell({
     }
 
     checkUser();
+    window.addEventListener("profile-updated", checkUser);
 
     return () => {
       active = false;
+      window.removeEventListener("profile-updated", checkUser);
     };
   }, [pathname, role, router, supabase]);
 
@@ -75,6 +77,7 @@ export default function DashboardShell({
 
   const adminLinks = [
     { href: "/admin", label: "لوحة التحكم", icon: LayoutDashboard },
+    { href: "/admin/profile", label: "معلوماتي الشخصية", icon: UserRound },
     { href: "/admin/volunteers", label: "المتطوعون", icon: Users },
     { href: "/admin/tasks", label: "إدارة المهام", icon: ClipboardList },
     { href: "/admin/availability",  label: "تفرغ المتطوعين", icon: CalendarDays },
@@ -83,6 +86,7 @@ export default function DashboardShell({
 
   const volunteerLinks = [
     { href: "/dashboard", label: "الرئيسية", icon: LayoutDashboard },
+    { href: "/dashboard/profile", label: "معلوماتي الشخصية", icon: UserRound },
     { href: "/dashboard/availability", label: "أوقات التفرغ", icon: CalendarDays },
     { href: "/dashboard/skills", label: "المهارات", icon: Award },
     { href: "/dashboard/resources", label: "الإمكانيات", icon: Package },
